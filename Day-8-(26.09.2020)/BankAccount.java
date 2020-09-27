@@ -63,14 +63,14 @@ public class BankAccount{
                     accountNum = "112254125"+String.valueOf(pos);
                     accounts[pos] = new BankAccount(name, address, accountNum);
                     System.out.println("------------------------Details------------------------");
-                    showDetails(accounts[pos]);
-                    pos++;
+                    showDetails(accounts[pos++]);
                     break;
 
                 case 2:System.out.println("Enter the bank account number: ");                   //Accepts account number and searches
                     String number = new Scanner(System.in).nextLine();
                     int flag=0, index=0;
                     for(int i = 0; i < accounts.length; i++){
+                        showDetails(accounts[i]);
                         if (accounts[i].accountNum.equals(number) && accounts[i].accountNum != null){
                             flag=1;
                             index=i;
