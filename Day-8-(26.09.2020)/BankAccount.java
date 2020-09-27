@@ -4,12 +4,15 @@ public class BankAccount{
     static String name, address, accountNum;
     static double balance;
 
+    //Non parameterized constructor for convenience of initialization
     BankAccount() {
-        this.name = "";
-        this.address = "";
-        this.accountNum = "";
+        this.name = null;
+        this.address = null;
+        this.accountNum = null;
         this.balance = 0.0;
     }
+
+    //Parameterized constructor for account setup
     BankAccount(String name, String address, String accountNum) {
         this.name = name;
         this.address = address;
@@ -17,10 +20,12 @@ public class BankAccount{
         this.balance = 0.0;
     }
 
+    //Deposit amount to balance
     static void deposit(BankAccount account, double deposit) {
         account.balance+=deposit;
     }
 
+    //Withdraw amount from balance
     static void withdraw(BankAccount account, double withdrawal){
         if (account.balance >= withdrawal){
             account.balance -= withdrawal;
@@ -32,6 +37,7 @@ public class BankAccount{
         }
     }
 
+    //Show account details
     static void showDetails(BankAccount account){
         System.out.println("Name: "+account.name);
         System.out.println("Address: "+account.address);
@@ -41,46 +47,64 @@ public class BankAccount{
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        BankAccount account = new BankAccount();
-        int c=1;
+        BankAccount[] accounts = new BankAccount[10];                                           //Initialize account array
+        int pos = 0;                                                                            //Initialize pos of array
+        int c=1;                                                                                //Choice variable
 
         while(c != 0){
             System.out.println("Enter your choice:");
-            System.out.println("  1.Create an account\n  2.Deposit an amount\n  3.Withdraw an amount\n  4.Show Details");
-            int choice = input.nextInt();
-            switch (choice) {
-                case 1:System.out.println("Enter your name: ");
+            System.out.println("  1.Create an account\n  2.Use an existing account");
+            int choice1 = input.nextInt();
+            switch (choice1) {
+                case 1:System.out.println("Enter your name: ");                                 //Create a new account
                     name = new Scanner(System.in).nextLine();
                     System.out.println("Enter your address: ");
                     address = new Scanner(System.in).nextLine();
-                    accountNum = "112254125";
-                    account = new BankAccount(name, address, accountNum);
-                    break;
-                
-                case 2:System.out.println("Enter the account number: ")
-                    accountNumber = new Scanner(System.in).nextLine();
-                    System.out.print("Enter your deposit amount: ");
-                    double depositAmount = input.nextDouble();
-                    deposit(account, depositAmount);
-                    System.out.println("Amount Deposited!");
+                    accountNum = "112254125"+String.valueOf(pos);
+                    accounts[pos] = new BankAccount(name, address, accountNum);
+                    System.out.println("------------------------Details------------------------");
+                    showDetails(accounts[pos]);
+                    pos++;
                     break;
 
-                case 3:if(account.accountNum == ""){
-                        System.out.println("Create account before withdrawing.");
-                        break;
+                case 2:System.out.println("Enter the bank account number: ");
+                    String number = new Scanner(System.in).nextLine();
+                    int flag=0, index=0;
+                    for(int i = 0; i < accounts.length; i++){
+                        if (accounts[i].accountNum.equals(number) && accounts[i].accountNum != null){
+                            flag=1;
+                            index=i;
+                        }
                     }
-                    System.out.print("Enter your withdrawal amount: ");
-                    double withdrawal = input.nextDouble();
-                    withdraw(account, withdrawal);
-                    break;
-
-                case 4:if(account.accountNum == ""){
-                        System.out.println("Create account before displaying.");
-                        break;
+                    if(flag == 0){
+                        System.out.println("Account Not Found");
                     }
-                    showDetails(account);
-                    break;
+                    else{
+                        System.out.println("What do you want to do?");
+                            System.out.println("  1.Deposit an amount\n  2.Withdraw an amount\n  3.Show Details");
+                            int choice2 = new Scanner(System.in).nextInt();
+                            switch (choice2){
+                                case 1:System.out.print("Enter your deposit amount: ");
+                                    double depositAmount = input.nextDouble();
+                                    deposit(accounts[index], depositAmount);
+                                    System.out.println("Amount Deposited!");
+                                    break;
 
+                                case 2:System.out.print("Enter your withdrawal amount: ");
+                                    double withdrawal = input.nextDouble();
+                                    withdraw(accounts[index], withdrawal);
+                                    break;
+
+                                case 3:showDetails(accounts[index]);
+                                    break;
+                                
+                                case 4:break;
+                                default:System.out.println("Invalid input");
+                                    break;
+                            }
+                    }
+                    break;
+                    
                 default:System.out.println("Invalid input");
                     break;
             }
