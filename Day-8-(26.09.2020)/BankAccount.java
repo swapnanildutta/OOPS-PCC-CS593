@@ -67,7 +67,7 @@ public class BankAccount{
                     pos++;
                     break;
 
-                case 2:System.out.println("Enter the bank account number: ");
+                case 2:System.out.println("Enter the bank account number: ");                   //Accepts account number and searches
                     String number = new Scanner(System.in).nextLine();
                     int flag=0, index=0;
                     for(int i = 0; i < accounts.length; i++){
@@ -81,30 +81,29 @@ public class BankAccount{
                     }
                     else{
                         System.out.println("What do you want to do?");
-                            System.out.println("  1.Deposit an amount\n  2.Withdraw an amount\n  3.Show Details");
-                            int choice2 = new Scanner(System.in).nextInt();
-                            switch (choice2){
-                                case 1:System.out.print("Enter your deposit amount: ");
-                                    double depositAmount = input.nextDouble();
-                                    deposit(accounts[index], depositAmount);
-                                    System.out.println("Amount Deposited!");
-                                    break;
+                        System.out.println("  1.Deposit an amount\n  2.Withdraw an amount\n  3.Show Details");
+                        int choice2 = new Scanner(System.in).nextInt();
+                        switch (choice2){
+                            case 1:System.out.print("Enter your deposit amount: ");
+                                double depositAmount = input.nextDouble();
+                                deposit(accounts[index], depositAmount);
+                                System.out.println("Amount Deposited!");
+                                break;
 
-                                case 2:System.out.print("Enter your withdrawal amount: ");
-                                    double withdrawal = input.nextDouble();
-                                    withdraw(accounts[index], withdrawal);
-                                    break;
+                            case 2:System.out.print("Enter your withdrawal amount: ");
+                                double withdrawal = input.nextDouble();
+                                withdraw(accounts[index], withdrawal);
+                                break;
 
-                                case 3:showDetails(accounts[index]);
-                                    break;
-                                
-                                case 4:break;
-                                default:System.out.println("Invalid input");
-                                    break;
-                            }
+                            case 3:showDetails(accounts[index]);
+                                break;
+
+                            default:System.out.println("Invalid input");
+                                break;
+                        }
                     }
                     break;
-                    
+
                 default:System.out.println("Invalid input");
                     break;
             }
