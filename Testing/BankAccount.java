@@ -39,7 +39,6 @@ public class BankAccount{
 
     //Show account details
     static void showDetails(BankAccount account){
-        System.out.println("-------------------------------Details------------------------------");
         System.out.println("Name: "+account.name);
         System.out.println("Address: "+account.address);
         System.out.println("Account Number: "+account.accountNum);
@@ -58,19 +57,18 @@ public class BankAccount{
             System.out.println("  1.Create an account\n  2.Use an existing account");
             int choice1 = input.nextInt();
             switch (choice1) {
-                case 1:System.out.println("-----------------------Creating New Account--------------------------");
-                    System.out.println("Enter your name: ");                                 //Create a new account
+                case 1:System.out.println("Enter your name: ");                                 //Create a new account
                     name = new Scanner(System.in).nextLine();
                     System.out.println("Enter your address: ");
                     address = new Scanner(System.in).nextLine();
                     accountNum = "112254125"+String.valueOf(pos);
                     accounts[pos] = new BankAccount(name, address, accountNum);
+                    System.out.println("------------------------Details------------------------");
                     showDetails(accounts[pos]);
                     pos++;
                     break;
 
-                case 2:System.out.println("------------------------Using Existing Account------------------------");
-                    System.out.println("Enter the bank account number: ");                   //Accepts account number and searches
+                case 2:System.out.println("Enter the bank account number: ");                   //Accepts account number and searches
                     String number = new Scanner(System.in).nextLine();
                     int flag=0, index=0;
                     for(int i = 0; i < pos; i++){
@@ -83,7 +81,6 @@ public class BankAccount{
                         System.out.println("Account Not Found");
                     }
                     else{
-                        System.out.println("------------------------Accessing Account: "+number+"---------------------------");
                         System.out.println("What do you want to do?");
                         System.out.println("  1.Deposit an amount\n  2.Withdraw an amount\n  3.Show Details");
                         int choice2 = new Scanner(System.in).nextInt();
