@@ -1,75 +1,61 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
+class Subjects
+{
+    String code, title;
+    int part1, part2, marks = 0;
 
-class Subject {
-    String title;
-    double internal, theory, totalMarks;
-
-    Subject(String title, double internal, double theory, double totalMarks) 
+    public Subjects(String code, String title, int part1, int part2)
     {
-        this.title = title;
-        this.internal = internal;
-        this.theory = theory;
-        this.totalMarks= internal + theory;
-    }
-
-    public String toString() 
-    {
-        return ("Subject Title = " + title + "; Internal marks = " + internal + "/50" + " Theory = " + theory
-                +"/70" + "\n Total Marks =" +this.totalMarks+"\n");
+        this.code=code;
+        this.title=title;
+        this.part1=part1;
+        this.part2=part2;
     }
 }
 
-public class Student8b{
-    Subject[] subs = new Subject[3];
-    String name, stream, college;
-    int rollNo;
-    double totalMarks;
+class Student
+{
+    String name, stream;
+    int roll, total = 0, count = 0;
 
-    Student8b(String name, String stream, String college, int rollNo, Subject[] subs, double Total) {
-        this.name = name;
-        this.stream = stream;
-        this.college = college;
-        this.rollNo = rollNo;
-        this.totalMarks = Total;
-
-        for (int i = 0; i < 3; i++)
-            this.subs[i] = subs[i]; 
-    }
-
-    public String toString() {
-        return "\nStudent Name =  "+this.name + "\nRoll no = " + this.rollNo + "\nStream = " + this.stream + "\nCollege = "
-                + this.college + "\nTotal Marks = "+this.totalMarks+"/360";
-    }
-
-    public static void main(String[] args) throws IOException {
-        BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
-        double Total=0.0;
-        Subject[] subs = new Subject[3];
-        String name, stream, college;
-        int rollNo;
-        System.out.print("Name: ");
-        name = buf.readLine();
-        System.out.print("Stream: ");
-        stream = buf.readLine();
-        System.out.print("College: ");
-        college = buf.readLine();
-        System.out.print("Roll no: ");
-        rollNo = Integer.parseInt(buf.readLine());
-        for (int i = 0; i < 3; i++) 
+    public Student(int roll, String name, String stream, Subjects[] sub)
+    {
+        this.name=name;
+        this.roll=roll;
+        this.stream=stream;
+        for(Subjects s : sub)
         {
-            System.out.println("Subject " + (i + 1));
-            System.out.print("Title: ");
-            String title = buf.readLine();
-            System.out.print("Internal Marks: ");
-            double internal = Double.parseDouble(buf.readLine());
-            System.out.print("Theory Marks: ");
-            double theory = Double.parseDouble(buf.readLine());
-            subs[i] = new Subject(title, internal, theory, internal + theory);
-            Total+=internal + theory;
+            s.marks = s.part1 + s.part2;
+            System.out.println("Code: " + s.code + " Title: " + s.title + " Marks: " + s.marks);
+            total += s.marks;
+            count++;
         }
-        Student8b Student = new Student8b(name, stream, college, rollNo, subs, Total );
-        System.out.println(Student.toString());
+    }
+
+    public String toString()
+    {
+        return "\nName: " + name + "\nRoll: " + roll + "\nStream: " + stream + "\nTotal " + total;
+    }
+}
+
+public class Student8b
+{
+    public static void main(String[] args)
+    {
+        Subjects sub[] = new Subjects[3];
+        System.out.println("----------------Student Details---------------");
+        System.out.println("\n-----------------Student 1-------------------");
+        sub[0] = new Subjects(" IT501", "Object Oriented Programming", 32, 54);
+        sub[1] = new Subjects(" IT502", "Computer Organisation", 36, 54);
+        sub[2] = new Subjects(" IT503", "Data Structures", 28, 48);
+        Student s1 = new Student(12, "Swapnanil Dutta", "IT", sub);
+
+        System.out.println("\n-----------------Student 2-------------------");
+        sub[0] = new Subjects(" CSE501", "Object Oriented Programming", 40, 49);
+        sub[1] = new Subjects(" CSE502", "Computer Organisation", 34, 53);
+        sub[2] = new Subjects(" CSE503", "Data Structures", 29, 58);
+        Student s2 = new Student(114, "Debdut Goswami", "CSE", sub);
+
+        System.out.println(s1);
+        System.out.println(s2);
     }
 }
