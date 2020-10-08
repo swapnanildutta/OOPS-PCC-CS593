@@ -1,5 +1,3 @@
-package gv;
-
 class Cube {
     int length, breadth, height;
     public int getVolume() {
