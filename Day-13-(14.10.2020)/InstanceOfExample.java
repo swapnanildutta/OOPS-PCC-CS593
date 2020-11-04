@@ -1,5 +1,3 @@
-package specialtest;
-
 //Multilevel inheritance
 class Vehicle {
     String name;

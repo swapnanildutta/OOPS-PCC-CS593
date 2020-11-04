@@ -1,7 +1,7 @@
 interface Shape {
     final double pi = 3.14; //by default: public, final, static
     double compArea(double l, double b); //by default: public, abstract
-    static void showPi() { System.out.println("PI = " + Figure.pi); } //new concept : static method
+    static void showPi() { System.out.println("PI = " + Shape.pi); } //new concept : static method
 }
 class Rectangle implements Shape {
     @Override

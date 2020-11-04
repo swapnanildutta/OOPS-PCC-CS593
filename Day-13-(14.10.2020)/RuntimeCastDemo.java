@@ -1,5 +1,3 @@
-package specialtest;
-
 // X is a supperclass of Y and Z which are siblings.
 class X {} //superclass
 class Y extends X {} //subclass1 of X
