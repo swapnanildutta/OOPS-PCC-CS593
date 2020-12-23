@@ -1,31 +1,35 @@
-package mycollections;
+//package mycollections;
 
 class Shared {
-    synchronized void doWork() { //synchronized method (2)
+    synchronized void doWork() { // synchronized method (2)
         System.out.println(Thread.currentThread().getName() + " started");
         try {
-            Thread.sleep(1000); //pause the thread for 1 sec
-        } 
-        catch (InterruptedException ex) {
-            System.out.println(ex);;
+            Thread.sleep(1000); // pause the thread for 1 sec
+        } catch (InterruptedException ex) {
+            System.out.println(ex);
+            ;
         }
         System.out.println(Thread.currentThread().getName() + " ended");
     }
 }
+
 class MyThreading extends Thread {
-    Shared sh; //instance variable
+    Shared sh; // instance variable
+
     public MyThreading(Shared sh, String name) {
         super(name);
         this.sh = sh;
         start();
     }
+
     @Override
     public void run() {
-        //synchronized(sh) { //synchronized block (1)
-            sh.doWork();
-        //}
-    }    
+        // synchronized(sh) { //synchronized block (1)
+        sh.doWork();
+        // }
+    }
 }
+
 public class Synchronize {
     public static void main(String[] args) {
         Shared sh = new Shared();
