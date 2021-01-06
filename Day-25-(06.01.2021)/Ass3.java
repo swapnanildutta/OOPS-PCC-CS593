@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.applet.*;
 
-/* <applet code="Ass3.class" width=300 height=250></applet> */
+/* <applet code="Ass3.class" width=800 height=800></applet> */
 
 public class Ass3 extends Applet {
     public void paint(Graphics g) {

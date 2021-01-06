@@ -5,7 +5,7 @@ import java.applet.*;
 
 public class Ass4 extends Applet {
     public void paint(Graphics g) {
-        g.setColor(Color.green);
+        g.setColor(Color.red);
         for (int i = 0; i * 40 <= getWidth(); i++) {
             if (i % 2 == 0) {
                 g.drawLine(i * 40, getHeight() / 2, (i + 1) * 40, getHeight() / 2 + 40);

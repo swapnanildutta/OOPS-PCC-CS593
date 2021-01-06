@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Ass1 extends Applet {
     public void paint(Graphics g) {
-        g.setColor(Color.green);
+        g.setColor(Color.blue);
         g.drawString("Swapnanil Dutta", getWidth() / 2, getHeight() / 2);
     }
 }
