@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.applet.*;
 
+/* <applet code="Ass4.class" width=300 height=250></applet> */
+
 public class Ass4 extends Applet {
     public void paint(Graphics g) {
         g.setColor(Color.green);

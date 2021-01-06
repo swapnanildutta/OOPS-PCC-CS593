@@ -1,6 +1,8 @@
 import java.applet.Applet;
 import java.awt.Graphics;
 
+/* <applet code="Ass5.class" width=300 height=250></applet> */
+
 public class Ass5 extends Applet {
     String s = "";
 
