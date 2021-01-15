@@ -1,8 +1,9 @@
-
 /*
- * <APPLET CODE=AppletParamAdd.class" WIDTH=400 HEIGHT=300> <PARAM NAME="n1"
- * VALUE="20"> <PARAM NAME="n2" VALUE="10"> </APPLET>
- */
+<APPLET CODE="AppletParamAdd.class" WIDTH=400 HEIGHT=300>
+<PARAM NAME="n1" VALUE="20">
+<PARAM NAME="n2" VALUE="10">
+</APPLET>
+*/
 import java.awt.*;
 import java.applet.*;
 

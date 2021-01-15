@@ -2,6 +2,8 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/* <applet code="SimpleCalculator.class" width=500 height=500></applet> */
+
 public class SimpleCalculator extends Applet implements ActionListener {
     String currInput = "0", operator = "", firstNum = "0";
     TextField display;

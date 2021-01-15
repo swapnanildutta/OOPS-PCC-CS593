@@ -1,6 +1,8 @@
 import java.applet.*;
 import java.awt.*;
 
+/* <applet code="AppletImage.class" width=1000 height=1000></applet> */
+
 public class AppletImage extends Applet {
     // The MediaTracker class is a utility class to track the status of a number of
     // media objects.
