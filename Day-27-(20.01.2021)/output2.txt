@@ -1,0 +1,2 @@
+This is the second Input file.
+This is the end of the file.Whateva I type will be the input for the program.
