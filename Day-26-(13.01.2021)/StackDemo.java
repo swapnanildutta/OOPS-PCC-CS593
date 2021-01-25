@@ -1,5 +1,3 @@
-package mycollections;
-
 import java.util.Iterator;
 import java.util.Stack;
 

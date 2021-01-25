@@ -1,5 +1,3 @@
-package testing2021;
-
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
