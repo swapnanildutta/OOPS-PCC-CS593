@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/* <applet code="SwingTest.class" width="400" height="350"></applet>  */
+
 public class SwingTest extends JApplet implements ActionListener {
     JButton b;
     JTextField tf;

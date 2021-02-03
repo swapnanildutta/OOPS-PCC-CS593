@@ -3,8 +3,9 @@ import java.awt.Graphics;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
 import javax.swing.*;
+
+/* <applet code="DigitalClock.class" width="400" height="350"></applet>  */
 
 public class DigitalClock extends JApplet implements Runnable {
     String str = "";

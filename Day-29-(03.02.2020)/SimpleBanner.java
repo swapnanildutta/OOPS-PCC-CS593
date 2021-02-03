@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 import javax.swing.*;
 
+/* <applet code="SimpleBanner.class" width="400" height="350"></applet>  */
+
 public class SimpleBanner extends JApplet implements Runnable {
     String m = "A simple moving Banner ";
     Thread t;
