@@ -1,3 +1,5 @@
+/* <applet code="DigitalClock.class" width="300" height="300"></applet>  */
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Calendar;

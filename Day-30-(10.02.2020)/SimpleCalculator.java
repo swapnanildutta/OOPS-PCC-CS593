@@ -1,3 +1,5 @@
+/* <applet code="SimpleCalculator.class" width="300" height="300"></applet>  */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
