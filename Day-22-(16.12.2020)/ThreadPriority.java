@@ -1,11 +1,10 @@
-package mycollections;
-
 class A extends Thread {
     public A() {
         System.out.println("Start Thread A");
-        setPriority(Thread.MIN_PRIORITY); //priority of thread A is 1
+        setPriority(Thread.MIN_PRIORITY); // priority of thread A is 1
         start();
     }
+
     public void run() {
         try {
             System.out.println("Thread A started");
@@ -13,8 +12,8 @@ class A extends Thread {
                 System.out.println("Thread A: Value of i = " + i);
                 Thread.sleep(500);
             }
-        } 
-        catch (InterruptedException e) {  }
+        } catch (InterruptedException e) {
+        }
         System.out.println("End of Thread A");
     }
 }
@@ -22,9 +21,10 @@ class A extends Thread {
 class B extends Thread {
     public B() {
         System.out.println("Start Thread B");
-        setPriority(getPriority() + 1); //priority of thread B is 6	
+        setPriority(getPriority() + 1); // priority of thread B is 6
         start();
     }
+
     public void run() {
         try {
             System.out.println("Thread B started");
@@ -32,17 +32,19 @@ class B extends Thread {
                 System.out.println("Thread B: Value of j = " + j);
                 Thread.sleep(500);
             }
-        } 
-        catch (InterruptedException e) {  }
+        } catch (InterruptedException e) {
+        }
         System.out.println("End of Thread B");
     }
 }
+
 class C extends Thread {
     public C() {
         System.out.println("Start Thread C");
-        setPriority(Thread.MAX_PRIORITY); //priority of thread C is 10
+        setPriority(Thread.MAX_PRIORITY); // priority of thread C is 10
         start();
     }
+
     public void run() {
         try {
             System.out.println("Thread C started");
@@ -50,15 +52,16 @@ class C extends Thread {
                 System.out.println("Thread C: Value of k = " + k);
                 Thread.sleep(500);
             }
-        } 
-        catch (InterruptedException e) {  }
+        } catch (InterruptedException e) {
+        }
         System.out.println("End of Thread C");
     }
 }
+
 public class ThreadPriority {
     public static void main(String s[]) {
         A a = new A();
         B b = new B();
-        C c = new C();       
+        C c = new C();
     }
 }

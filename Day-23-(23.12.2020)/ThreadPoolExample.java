@@ -1,5 +1,3 @@
-package threadexpt;
-
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
@@ -12,9 +10,9 @@ class UserThread implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName()+ " Starting. Message = " + msg);
+        System.out.println(Thread.currentThread().getName() + " Starting. Message = " + msg);
         doWork();
-        System.out.println(Thread.currentThread().getName()+ " Ending.");
+        System.out.println(Thread.currentThread().getName() + " Ending.");
     }
 
     private void doWork() {
@@ -25,7 +23,7 @@ class UserThread implements Runnable {
         }
     }
 
-    public String toString(){
+    public String toString() {
         return this.msg;
     }
 

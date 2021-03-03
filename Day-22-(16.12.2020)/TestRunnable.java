@@ -1,5 +1,3 @@
-//package com.mycompany.threadexpt;
-
 class MyRunnable implements Runnable {
 
     public MyRunnable(String name) {
@@ -15,12 +13,13 @@ class MyRunnable implements Runnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
-                System.out.println(ex);;
+                System.out.println(ex);
+                ;
             }
         }
         System.out.println(Thread.currentThread().getName() + " ended");
-    }    
-    
+    }
+
 }
 
 public class TestRunnable {
@@ -32,7 +31,8 @@ public class TestRunnable {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
-                System.out.println(ex);;
+                System.out.println(ex);
+                ;
             }
         }
         System.out.println(Thread.currentThread().getName() + " ended");

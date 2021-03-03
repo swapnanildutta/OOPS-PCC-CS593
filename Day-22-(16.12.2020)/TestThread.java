@@ -1,5 +1,3 @@
-//package com.mycompany.threadexpt;
-
 class MyThread extends Thread {
 
     public MyThread(String name) {
@@ -15,16 +13,17 @@ class MyThread extends Thread {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
-                System.out.println(ex);;
+                System.out.println(ex);
+                ;
             }
         }
         System.out.println(Thread.currentThread().getName() + " ended");
-    }    
-    
+    }
+
 }
 
 public class TestThread {
-    
+
     public static void main(String[] args) {
         System.out.println(Thread.currentThread().getName() + " started");
         MyThread t = new MyThread("MyThread");
@@ -33,7 +32,8 @@ public class TestThread {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
-                System.out.println(ex);;
+                System.out.println(ex);
+                ;
             }
         }
         System.out.println(Thread.currentThread().getName() + " ended");

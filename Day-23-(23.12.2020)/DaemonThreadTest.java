@@ -1,9 +1,8 @@
-package threadexpt;
-
 class SimpleThread extends Thread {
     SimpleThread(String name) {
         super(name);
     }
+
     public void run() {
         Thread t = Thread.currentThread();
         if (t.isDaemon()) {
@@ -13,6 +12,7 @@ class SimpleThread extends Thread {
         }
     }
 }
+
 public class DaemonThreadTest {
     public static void main(String[] args) {
         SimpleThread t1 = new SimpleThread("1st");

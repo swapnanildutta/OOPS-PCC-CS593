@@ -1,24 +1,22 @@
-
-
 class Share {
-    int data = 0; 
-    
+    int data = 0;
+
     synchronized void write() {
         System.out.println(Thread.currentThread().getName() + " starting");
         try {
-            Thread.sleep(1000); //pauses for 1 sec
+            Thread.sleep(1000); // pauses for 1 sec
         } catch (InterruptedException ex) {
             System.out.println(ex);
         }
-        data = 20; 
-        notify(); 
+        data = 20;
+        notify();
         System.out.println(Thread.currentThread().getName() + " ending");
     }
-    
+
     synchronized int read() {
         System.out.println(Thread.currentThread().getName() + " starting");
         try {
-            wait(); 
+            wait();
         } catch (InterruptedException ex) {
             System.out.println(ex);
         }
@@ -29,32 +27,36 @@ class Share {
 
 class Writer extends Thread {
     Share sh;
+
     public Writer(Share sh, String name) {
         super(name);
         this.sh = sh;
         start();
     }
+
     @Override
     public void run() {
         sh.write();
-    }   
+    }
 }
 
 class Reader extends Thread {
     Share sh;
+
     public Reader(Share sh, String name) {
         super(name);
         this.sh = sh;
         start();
     }
+
     @Override
     public void run() {
         System.out.println("Result: " + sh.read());
-    }   
+    }
 }
 
 public class InterThreadCommunication {
-    
+
     public static void main(String[] args) {
         Share sh = new Share();
         Reader ob1 = new Reader(sh, "Reader");
